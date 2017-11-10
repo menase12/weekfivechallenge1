@@ -1,0 +1,11 @@
+.table
+{table-bordered:
+table-striped
+}
+.backgrd{
+    background: url(../image/dogimage.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

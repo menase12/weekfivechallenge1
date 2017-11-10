@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+</head>
+<body class="backgrd">
+<nav class="navbar navbar-default roboto">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Pet Finder</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/add">Add<span class="sr-only"></span></a></li>
+                <li class="active"><a href="/allList">list<span class="sr-only"></span></a></li>
+                <li class="active"><a href="/">Home<span class="sr-only"></span></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- nav bar end here-->
+
+<a href="/add"><h2>Add a Pet</h2></a><br/>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Pet Name</th>
+        <th>Age</th>
+        <th>Type of Animal</th>
+        <th>Breed</th>
+        <th>Color</th>
+        <th>Distinguishing features </th>
+        <th>Phone number</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="pet : ${pets}">
+        <lable><td th:text="${pet.petName}"></td></lable>
+        <lable><td th:text="${pet.age}"></td></lable>
+        <lable><td th:text="${pet.typeOfAnimal}"></td></lable>
+        <labe><td th:text="${pet.breed}"></td></labe>
+        <lable><td th:text="${pet.color}"></td></lable>
+        <lable><td th:text="${pet.feature}"></td></lable>
+        <lable><td th:text="${pet.phoneNumber}"></td></lable>
+
+        <td><lable><a th:href="@{/update/{id}(id=${pet.id})}">Update</a></lable>
+            <lable><a th:href="@{/detail/{id}(id=${pet.id})}">Details</a></lable>
+            <lable><a th:href="@{/delete/{id}(id=${pet.id})}">Delete</a></lable>
+        </td>
+    </tr>
+</table>
+<!-- Latest compiled and minified JavaScript form jquery and the bootstrap-->
+<script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
